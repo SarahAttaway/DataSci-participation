@@ -12,5 +12,5 @@ Usf Data science **repo**
 make a commit from desktop app
 
 * To do
-  *First assignment  **due monday**
-  *Peer review   **due tuesday**
+*First assignment  **due monday**
+*Peer review   **due tuesday**
