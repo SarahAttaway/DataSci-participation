@@ -10,3 +10,7 @@ Usf Data science **repo**
 [class repo](https://github.com/USF-Psych-DataSci-2020)
 
 make a commit from desktop app
+
+* To do
+  *First assignment **due monday**
+  *Peer review **due tuesday**
