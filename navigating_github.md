@@ -11,6 +11,6 @@ Usf Data science **repo**
 
 make a commit from desktop app
 
-* To do
- * Assignment 1
- * Peer review
+* To do 
+  * Assignment 1 
+  * Peer review
