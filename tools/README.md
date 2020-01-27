@@ -16,7 +16,7 @@ Specifically,
 During my time at USF I have gained lots of research experience in the disordered eating, prevention, treatment, and health \(or **DEPTH**\) Lab.
 
 Research Roles |
---------------------
+---------------|
 Research Assistant|
 Honors Thesis Student|
 Study Cooridinator|
