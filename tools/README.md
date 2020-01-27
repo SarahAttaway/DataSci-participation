@@ -8,6 +8,15 @@ My name is Sarah Attaway and I am an undergraduate senior in the psychology prog
 ## Research Interests
 Research that I am interested in resolves around eating disorder and their sociocultural influences. 
 Specifically,
-1. *Eating disorder outcomes*
-2. *Sexual Objectification*
-3. *Body Image* 
+* *Eating disorder outcomes*
+* *Sexual Objectification*
+* *Body Image* 
+
+## Research Experience 
+During my time at USF I have gained lots of research experience in the disordered eating, prevention, treatment, and health \(or **DEPTH**\) Lab.
+
+Research Roles |
+--------------------
+Research Assistant|
+Honors Thesis Student|
+Study Cooridinator|
