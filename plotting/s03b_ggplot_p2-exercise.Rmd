@@ -70,8 +70,8 @@ also notice that `ggplot2` ignores the grouping of a tibble!
 ```{r, fig.width = 5, fig.height = 2}
 ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   geom_point(alpha = 0.2) +
-  scale_x_log10() + 
-  facet_wrap(vars(continent)) +
+  facet_wrap(~ continent) +
+  scale_x_log10(labels = scales::comma_format()) 
  
 ```
 
@@ -100,7 +100,7 @@ Instead of alpha transparency, suppose you're wanting to fix the overplotting is
 
 ```{r, fig.width = 5, fig.height = 2}
 ggplot(gapminder) +
-  geom_point(aes(gdpPercap, lifeExp, size = 0.1)) +
+  geom_point(aes(gdpPercap, lifeExp), size = 0.1) +
   scale_x_log10(labels = scales::dollar_format())
 ```
 
@@ -122,7 +122,8 @@ tribble(
   4, 0.4, 0.5
 ) %>% 
   ggplot(aes(x, y)) + 
-  geom_line()
+  geom_path(arrow = arrow()) +
+  geom_text(aes(label = time), nudge_y = .3, nudge_x = .01)
 ```
 
 ## Exercise 5: Life expectancies in Africa
