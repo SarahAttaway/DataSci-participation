@@ -142,21 +142,24 @@ Let's do some practice with grouping (and ungrouping) and summarizing data frame
    (c) Arrange by min life expectancy.
 
 ```{r}
+# if you want mins for all use mutate, if you want 1 value use summarise
 gapminder %>% 
-  group_by(FILL_THIS_IN) %>% 
-  FILL_THIS_IN(min_life = min(lifeExp))
+  group_by(continent, year) %>% 
+  summarise(min_life = min(lifeExp))
 ```
 
 
 2. Let's compute the mean Agreeableness score across items for each participant 
 in the `psych::bfi` dataset. Be sure to handle `NA`!
 
+rowise tells r to compute based on each row
 ```{r}
 psych::bfi %>%
   as_tibble() %>% 
   select(A1:A5) %>% 
   rowwise() %>% 
-  mutate(A_mean = mean(c(A1, A2, A3, A4, A5), na.rm = TRUE)) %>% 
+  mutate(A_mean = mean(c(A1, A2, A3, A4, A5), na.rm = TRUE))%>%
+  mutate(A_sd = sd(c(A1, A2, A3, A4, A5, na.rm = TRUE))) %>% 
   ungroup()
 ```
 
@@ -164,7 +167,16 @@ Now compute mean scores for Conscientiousness, as well as `sd` and `min` scores
 for reach person.
 
 ```{r}
-
+psych::bfi %>%
+  as_tibble() %>% 
+  select(C1:C5) %>% 
+  rowwise() %>% 
+  mutate(C_mean = mean(c(C1, C2, C3, C4, C5), na.rm = TRUE))%>%
+  mutate(C_sd = sd(c(C1, C2, C3, C4, C5), na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  group_by(C_mean, C_sd) %>% 
+  summarise(C_min = min(c(C1, C2, C3, C4, C5), na.rm = TRUE)) %>% 
+  select(C_mean, C_sd, C_min)
 ```
 
 Some functions are **vectorized**, so you don't need `rowwise()`. 
@@ -175,6 +187,8 @@ psych::bfi %>%
   as_tibble() %>% 
   select(A1:A5) %>% 
   mutate(A_min = pmin(A1, A2, A3, A4, A5))
+
+
 ```
 
 **There are a few other ways to do this sort of computation.**
@@ -212,11 +226,18 @@ psych::bfi %>%
    participant. Store this data frame as a new object.
    
 ```{r}
-FILL_THIS_IN <-
-  psych::bfi %>% 
-  FILL_THIS_IN(FILL_THIS_IN)
+psych::bfi %>% 
+  mutate(O_mean = mean(c(O1, O2, O3, O4, O5), na.rm = TRUE))%>% 
+  mutate(C_mean = mean(c(C1, C2, C3, C4, C5), na.rm = TRUE))%>%
+  mutate(E_mean = mean(c(E1, E2, E3, E4, E5), na.rm = TRUE))%>%
+  mutate(A_mean = mean(c(A1, A2, A3, A4, A5), na.rm = TRUE))%>%
+  mutate(N_mean = mean(c(N1, N2, N3, N4, N5), na.rm = TRUE))%>%
+  select(education, O_mean, C_mean, E_mean, A_mean, N_mean) -> newpsych
+newpsych
 ```
 
+
+```{r}
 4. Use the data from Task 3 to summarize the distributions of Big Five scores 
    for each educational level (e.g., report the mean, sd, min, and max for
    each score in each group). Also report the sample size within each group.
@@ -225,7 +246,7 @@ FILL_THIS_IN <-
 FILL_THIS_IN %>% 
   FILL_THIS_IN(FILL_THIS_IN) %>% 
   FILL_THIS_IN(FILL_THIS_IN)
-```  
+```
 
 
 
